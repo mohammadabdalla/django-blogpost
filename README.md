@@ -7,4 +7,6 @@ you can fork the code.
 python -m venv ENVIRONMENTNAME # to create virtual environment where the package will settle<br />
 source venv/Scripts/activate # to activate the environment<br />
 pip install<br />
+python manage.py makemigrations <br />
+python manage.py migrate <br />
 python manage.py runserver<br />
