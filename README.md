@@ -16,7 +16,7 @@ python manage.py runserver<br />
 <br />
 <br />
 
-<b>Also you can creat a super user and navigate to /admin to mange the cotnent of the blog:</b>
+<b>Also you can creat a super user and navigate to /admin to mange the content of the blog:</b>
 <br />
 python manage.py createsuperuser
 
