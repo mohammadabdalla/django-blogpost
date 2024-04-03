@@ -1,7 +1,6 @@
 
 A django blogpost app based on maximilian udemy course, since the course doesn't have signup/signin, i thought it would be a good idea to add it.
 I made all routes protected except for the index (home page) route
-you can fork the code.
 <br />
 <br />
 <br />
