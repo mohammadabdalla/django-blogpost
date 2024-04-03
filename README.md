@@ -3,6 +3,8 @@ A django blogpost app based on maximilian udemy course, since the course doesn't
 I made all routes protected except for the index (home page) route
 you can fork the code.
 <br />
+<br />
+<br />
 <b>Usage</b> (assuming that you have python installed):<br />
 python -m venv ENVIRONMENTNAME<br />
 source venv/Scripts/activate<br />
