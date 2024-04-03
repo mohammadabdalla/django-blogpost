@@ -3,29 +3,22 @@
 {% block css_files %}
 <link rel="stylesheet" href="{% static "blog/login-register.css" %}">
 {% endblock %}
+
+
 <html>
 
 <div class="login-page">
     <div class="form">
-    <form method="POST" autocomplete="off" >
+    <form method="POST" action="{% url "register-page" %}" autocomplete="off" >
 
         {% csrf_token %}
-        <div class="form-group">
-            {{ registerform.username.label_tag }}
-            {{ registerform.username }}
+        {% for form_field in registerform %}
+        <div class="form-control {% if form_field.errors %} invalid {% endif %}">
+          {{ form_field.label_tag }}
+          {{ form_field }}
+          {{ form_field.errors }}
         </div>
-        <div class="form-group">
-            {{ registerform.email.label_tag }}
-            {{ registerform.email }}
-        </div>
-        <div class="form-group">
-            {{ registerform.password1.label_tag }}
-            {{ registerform.password1 }}
-        </div>
-        <div class="form-group">
-            {{ registerform.password2.label_tag }}
-            {{ registerform.password2 }}
-        </div>
+      {% endfor %}
         <button>Sign Up</button>
         <p class="message">Already registered? <a href="{% url "user-login-page" %}">Sign In</a></p>
         

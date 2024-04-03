@@ -9,6 +9,7 @@ from .models import Post
 from .forms import CommentForm
 
 
+from django.contrib import messages
 
 # - Authentication models and functions
 from . forms import CreateUserForm, LoginForm
@@ -124,21 +125,20 @@ class AnonymousOnlyMixin():
     A mixin that only allows anonymous users (users not logged in) to access the view.
     """
     def dispatch(self, request, *args, **kwargs):
-        print("self.request.user.is_authenticated: ",self.request.user.is_authenticated)
         if self.request.user.is_authenticated:
             return HttpResponseRedirect("/")  # Redirect authenticated users to the home page or any other page
         return super().dispatch(request, *args, **kwargs)
         
 class RegisterView(AnonymousOnlyMixin,View):
     def get(self, request):
+      print("register get //////////////////////")
       form = CreateUserForm()
-      print("this isthe register form: ",form)
       context = {'registerform':form}
       return render(request, 'blog/register.html', context=context)
     
     def post(self, request):
+       print("register post //////////////////////")
        form = CreateUserForm(request.POST)
-       
        context = {'registerform':form}
        if form.is_valid():
           form.save()
@@ -149,12 +149,14 @@ class RegisterView(AnonymousOnlyMixin,View):
            
 class LoginView(AnonymousOnlyMixin,View):
     def get(self, request):
+      print("login get ////////////////")
       form = LoginForm()
       context = {'loginform':form}
       return render(request, 'blog/user-login.html', context=context)
 
 
     def post(self, request):
+      print("login post ////////////////")
       form = LoginForm(data=request.POST)
       context = {'loginform':form}
       if form.is_valid():

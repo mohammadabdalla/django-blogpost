@@ -4,19 +4,20 @@
 {% endblock %}
 <html>
 
-<div class="login-page">
+<div class="login-page wrapper">
     <div class="form">
-    <form method="POST" autocomplete="off" class="login-form">
+    <form method="POST" action="{% url "user-login-page" %}" autocomplete="off" class="login-form">
 
         {% csrf_token %}
-        <div class="form-group">
-            {{ loginform.username.label_tag }}
-            {{ loginform.username }}
-        </div>
-        <div class="form-group">
-            {{ loginform.password.label_tag }}
-            {{ loginform.password }}
-        </div>
+        
+        {% for form_field in loginform %}
+      <div class="form-control {% if form_field.errors %} invalid {% endif %}">
+        {{ form_field.label_tag }}
+        {{ form_field }}
+        {{ form_field.errors }}
+      </div>
+    {% endfor %}
+
         <button>login</button>
         <p class="message">Not registered? <a href="{% url "register-page" %}">Create an account</a></p>
         
