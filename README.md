@@ -12,7 +12,16 @@ pip install<br />
 python manage.py makemigrations <br />
 python manage.py migrate <br />
 python manage.py runserver<br />
-
+<br />
+<br />
+<br />
 
 <b>Also you can creat a super user and navigate to /admin to mange the cotnent of the blog</b>
 python manage.py createsuperuser
+
+<br />
+<br />
+<br />
+
+<b>Note: the code is not prepared for deployment</b>
+
